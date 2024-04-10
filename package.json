@@ -2,7 +2,8 @@
   "name": "meteor-docker",
   "private": false,
   "scripts": {
-    "start": "meteor run"
+    "dev": "meteor run",
+    "start": "docker-compose up"
   },
   "dependencies": {
     "@babel/runtime": "^7.23.5",
