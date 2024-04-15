@@ -7,12 +7,9 @@ import App from "/imports/App/App.routes"
 import "@mantine/core/styles.css"
 
 onPageLoad(() => {
-  const preloadedState = window.__PRELOADED_STATE__
-  delete window.__PRELOADED_STATE__
-
   ReactDOM.createRoot(document.getElementById("react-target")).render(
     <BrowserRouter>
-      <App data={preloadedState} />
+      <App />
     </BrowserRouter>
   )
 })
