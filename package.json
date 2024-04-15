@@ -7,6 +7,8 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.23.5",
+    "@mantine/core": "^7.8.0",
+    "@mantine/hooks": "^7.8.0",
     "meteor-node-stubs": "^1.2.7",
     "node-abort-controller": "^3.1.1",
     "node-fetch": "^3.3.2",
@@ -24,6 +26,9 @@
   "devDependencies": {
     "autoprefixer": "^10.4.19",
     "postcss": "^8.4.38",
+    "postcss-load-config": "^5.0.3",
+    "postcss-preset-mantine": "^1.14.4",
+    "postcss-simple-vars": "^7.0.1",
     "prettier": "^3.2.5",
     "tailwindcss": "^3.4.3"
   }
