@@ -1,21 +1,35 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { Route, Routes } from "react-router"
-import SerafinosPage from "../Serafinos/Serafinos.page"
+import { useTracker } from "meteor/react-meteor-data"
+import SerafinosPage from "/imports/Serafinos/Serafinos.page"
+import { getCount } from "../Serafinos/Counter.model"
 
 function AppPage() {
+  const { count } = useTracker(() => getCount())
+
   return (
     <div>
       <h1>Meteor Docker</h1>
 
-      <Link to="/serafinos" className="underline">
-        All the Serafinos
-      </Link>
+      <p>
+        <button onClick={() => Meteor.call("incrementCount")}>
+          {count}
+        </button>
+      </p>
 
-      <Routes>
-        <Route path="/" element={<></>} />
-        <Route path="/serafinos" element={<SerafinosPage />} />
-      </Routes>
+      <p>
+        <Link to="/serafinos" className="underline">
+          All the Serafinos
+        </Link>
+      </p>
+
+      <div>
+        <Routes>
+          <Route path="/" element={<></>} />
+          <Route path="/serafinos" element={<SerafinosPage />} />
+        </Routes>
+      </div>
     </div>
   )
 }
