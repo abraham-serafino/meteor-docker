@@ -3,18 +3,20 @@ import { Link } from "react-router-dom"
 import { Route, Routes } from "react-router"
 import { useTracker } from "meteor/react-meteor-data"
 import SerafinosPage from "/imports/Serafinos/Serafinos.page"
-import { getCount } from "../Serafinos/Counter.model"
+import CounterModel from "../Serafinos/Counter.model"
 
 function AppPage() {
-  const { count } = useTracker(() => getCount())
+  const [isLoading, data] = CounterModel.subscribe()
 
   return (
     <div>
       <h1>Meteor Docker</h1>
 
       <p>
-        <button onClick={() => Meteor.call("incrementCount")}>
-          {count}
+        <button
+          onClick={() => CounterModel.incrementCount({ step: 5 })}
+        >
+          {isLoading ? "..." : data.count}
         </button>
       </p>
 
