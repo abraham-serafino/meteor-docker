@@ -4,8 +4,8 @@ import SerafinoModel from "/imports/Serafinos/Serafinos.model"
 
 function SerafinosPage() {
   let serafinos = Meteor.isServer
-    ? SerafinoModel.getAll()
-    : useTracker(() => SerafinoModel.getAll())
+    ? SerafinoModel.getAll() // this line is only executed on the server
+    : useTracker(() => SerafinoModel.getAll()) // this line is only executed on the client
 
   return (
     <div>
